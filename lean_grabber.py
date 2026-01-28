@@ -29,16 +29,17 @@ def get_system_data():
 
 #-----------------------------------------saves highlight into JSON-------------------------
 def save_highlight(text, source):
-    """Saves to JSON. Simple append logic."""
-    entry = {"source": source, "content": text}
     data = []
     if os.path.exists(LOG_FILE):
-        with open(LOG_FILE, 'r') as f:
-            try: data = json.load(f)
-            except: data = []
-    
-    data.append(entry)
-    with open(LOG_FILE, 'w') as f:
+        with open(LOG_FILE, "r") as f:
+            try:
+                data = json.load(f)
+            except:
+                data = []
+    if data and data[-1]["content"] == text:
+        return  # skip duplicate
+    data.append({"source": source, "content": text})
+    with open(LOG_FILE, "w") as f:
         json.dump(data, f, indent=4)
     print(f"Captured: {text[:40]}...")
 
