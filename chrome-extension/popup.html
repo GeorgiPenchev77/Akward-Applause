@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clipboard History</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📋 Clipboard History</h1>
+      <button id="clearBtn" class="btn-clear" title="Clear all history">🗑️</button>
+    </div>
+    
+    <div id="historyContainer" class="history-container">
+      <p class="empty-state">No items saved yet. Select text and press Cmd+K to save!</p>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
